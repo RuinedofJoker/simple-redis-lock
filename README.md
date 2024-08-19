@@ -13,3 +13,7 @@
 
 
 这个分布式锁使用set nx ex 作为锁的基本功能，并在value处使用 `(基于jvm+thread的uuid)_重入次数`作为value。在你不指定自动释放时间时，会使用RedisLock类中定义的 defaultAutoReleaseTime (你可以任意修改它)作为默认释放时间，并发布一个看门狗每隔该时间的1/3来自动续约。
+
+
+
+代码里面关于redis的操作主要是对key本身、string、发布订阅的，没有包含redis其他的数据结构。
